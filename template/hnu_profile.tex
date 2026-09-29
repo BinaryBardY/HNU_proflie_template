@@ -1,0 +1,132 @@
+% !TEX program = xelatex
+% HNU Profile / CV template
+% Compile with XeLaTeX from this directory. The logo is in ../logo/.
+\documentclass[10.5pt,a4paper]{ctexart}
+
+\usepackage[a4paper,top=1.35cm,bottom=1.35cm,left=1.45cm,right=1.45cm]{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{microtype}
+
+\definecolor{HNUBlack}{HTML}{222222}
+\definecolor{HNURed}{HTML}{C8322D}% close to the red in the HNU logo
+\definecolor{Muted}{HTML}{5A5A5A}
+
+\hypersetup{colorlinks=true,urlcolor=HNUBlack,linkcolor=HNUBlack}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlist[itemize]{leftmargin=1.55em,itemsep=1pt,topsep=1pt,parsep=0pt}
+\setlist[enumerate]{leftmargin=1.65em,itemsep=1pt,topsep=1pt,parsep=0pt}
+\renewcommand{\arraystretch}{1.18}
+\setlength{\tabcolsep}{0pt}
+\linespread{1.06}
+\pagestyle{empty}
+
+% Red bold section title with a matching full-width rule.
+\newcommand{\profilesection}[1]{%
+  \vspace{0.52em}%
+  {\large\bfseries\color{HNURed}#1}\par\vspace{0.12em}%
+  {\color{HNURed}\hrule height 1.8pt}%
+  \vspace{0.28em}%
+}
+
+% Right-aligned metadata used by education, projects, and awards.
+\newcommand{\rightmeta}[1]{\hfill{\color{Muted}\small #1}}
+\newcommand{\entrytitle}[2]{\textbf{#1}\rightmeta{#2}\par}
+\newcommand{\labelitem}[1]{\textbf{\color{HNUBlack}#1}}
+
+\begin{document}
+
+% -----------------------------------------------------------------------------
+% Basic information
+% -----------------------------------------------------------------------------
+\noindent\begin{tikzpicture}
+  \path[use as bounding box] (0,0) rectangle (\textwidth,2.15cm);
+  \node[anchor=north west,inner sep=0pt] at (-0.9cm,2.95cm) {\includegraphics[width=4.5cm]{../logo/hnu_logo_white_cropped.png}};
+  \node[anchor=north,inner sep=0pt] at (\dimexpr\textwidth/2\relax,1.15cm) {{\fontsize{20pt}{24pt}\selectfont\bfseries\color{HNUBlack}姓名}};
+  \node[anchor=north east,inner sep=0pt] at (\textwidth,2.65cm) {%
+    \IfFileExists{../photo/photo.jpg}{%
+      \includegraphics[width=3.1cm,height=3.75cm,keepaspectratio]{../photo/photo.jpg}%
+    }{%
+      \fbox{\parbox[c][3.55cm][c]{2.9cm}{\centering\small 照片\\[0.25em]../photo/photo.jpg}}%
+    }%
+  };
+\end{tikzpicture}\par\vspace{-0.2cm}
+\small
+\textbf{籍贯：} 湖南省长沙市\quad |\quad
+\textbf{出生年月：} 20XX.XX\quad |\quad
+\textbf{最高学历：} 本科/硕士\par
+\vspace{0.25em}
+\textbf{电话：} +86 138 0000 0000\quad |\quad
+\textbf{邮箱：} \href{mailto:name@example.com}{name@example.com}\quad |\quad
+\textbf{求职意向：} 目标岗位/研究方向
+
+% -----------------------------------------------------------------------------
+% Education
+% -----------------------------------------------------------------------------
+\profilesection{教育背景}
+\entrytitle{湖南大学，院系名称，专业名称}{20XX.09 -- 至今}
+学历：本科/硕士/博士\quad GPA：X.XX/4.00\quad 排名：前 X\%\par
+核心课程：课程 A（100）、课程 B（99）、课程 C（98）、课程 D（96）\par
+
+\vspace{0.25em}
+\entrytitle{学校名称，院系名称，专业名称}{20XX.09 -- 20XX.06}
+学历：本科/硕士\quad 相关课程：课程 A、课程 B、课程 C
+
+% -----------------------------------------------------------------------------
+% Research experience
+% -----------------------------------------------------------------------------
+\profilesection{科研经历}
+\entrytitle{项目/课题名称}{20XX.XX -- 20XX.XX}
+\labelitem{项目内容：}用一句话概括研究问题、技术路线和应用场景。\par
+\labelitem{负责工作：}
+\begin{itemize}
+  \item 负责模块一：说明具体方法、使用的工具/框架，以及个人贡献。
+  \item 负责模块二：说明实验设计、数据处理或系统实现细节。
+  \item 完成论文撰写、实验复现、代码整理或项目文档。
+\end{itemize}
+\labelitem{所获成果：}论文/专利/软件著作权/开源项目/实验指标（例如准确率提升 X\%）。
+
+\vspace{0.25em}
+\entrytitle{项目/课题名称}{20XX.XX -- 20XX.XX}
+\labelitem{项目内容：}项目背景、研究目标和主要技术路线。\par
+\labelitem{负责工作：}
+\begin{itemize}
+  \item 负责研究任务一，给出可量化的工作内容。
+  \item 负责研究任务二，突出难点、方法和最终效果。
+\end{itemize}
+\labelitem{所获成果：}成果形式、发表/录用状态、竞赛或实际应用情况。
+
+% -----------------------------------------------------------------------------
+% Competition and awards
+% -----------------------------------------------------------------------------
+\profilesection{竞赛获奖}
+\entrytitle{202X 年竞赛/项目名称}{国家级一等奖 · 202X.XX}
+\labelitem{负责工作：}概括个人负责的核心模块、技术方案和最终指标。\par
+
+\vspace{0.18em}
+\entrytitle{202X 年竞赛/项目名称}{省级二等奖 · 202X.XX}
+\labelitem{负责工作：}概括方案设计、工程实现、测试验证和团队协作。\par
+
+\vspace{0.18em}
+\entrytitle{202X 年竞赛/项目名称}{校级一等奖 · 202X.XX}
+\labelitem{负责工作：}用一行说明贡献和结果。
+
+% -----------------------------------------------------------------------------
+% Other experience and honors
+% -----------------------------------------------------------------------------
+\profilesection{其他经历与荣誉}
+\begin{enumerate}
+  \item \textbf{20XX--20XX 学年：} 国家奖学金、学业优秀奖、课程优秀奖。
+  \item \textbf{20XX--20XX 学年：} 优秀学生干部、优秀共青团员、志愿服务荣誉。
+  \item \textbf{语言与技能：} CET-6（X 分）、Python、C/C++、MATLAB、Linux、Git。
+\end{enumerate}
+
+\end{document}
