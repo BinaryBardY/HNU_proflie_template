@@ -2,10 +2,16 @@
 
 这是一个单页 A4 中文 LaTeX 个人简介模板。页面采用红色标题和横线，左上角显示湖南大学 logo，右上角预留证件照。内容依次为基本信息、教育背景、科研经历、竞赛获奖和其他经历与荣誉。
 
+## 效果预览
+
+![个人简介模板 PDF 首页预览](assets/preview.png)
+
 ## 目录结构
 
 ```text
-profile/
+HNU_profile_template/
+├── assets/
+│   └── preview.png                 # README 效果截图
 ├── logo/
 │   ├── hnu_logo.png                 # 原始 logo
 │   ├── hnu_logo_white.png           # 白底版本
